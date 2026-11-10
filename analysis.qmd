@@ -15,7 +15,7 @@ library(dbplyr)
 
 ```{r}
 #| label: connect-atus
-#| echo: true
+#| include: false
 #| message: false
 
 con <- dbConnect(
@@ -32,7 +32,7 @@ dbplyr_codes <- tbl(con, "activity_codes")
 ```{r}
 #| cache: true
 #| label: average-activity-minutes-by-sex
-#| echo: true
+#| include: false
 #| message: false
 
 activity_avg <- dbplyr_act |>
@@ -64,7 +64,7 @@ activity_avg <- dbplyr_act |>
 
 ```{r}
 #| label: hourly-activity-average
-#| echo: true
+#| include: false
 #| message: false
 
 hourly_avg <- dbplyr_act |>
@@ -103,7 +103,7 @@ print(hourly_avg)
 
 ```{r}
 #| label: average-activity-chart
-#| echo: true
+#| echo: false
 
 activity_avg |>
   filter(major_name != "Data Codes") |>
@@ -128,7 +128,7 @@ activity_avg |>
 
 ```{r}
 #| label: hourly-activity-area-chart
-#| echo: true
+#| echo: false
 
 ggplot(
   hourly_avg,
